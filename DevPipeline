@@ -1,10 +1,9 @@
-
-def pipeline = load 'release.groovy'
-
 stage 'snapshot build'
 node {
-    pipeline.sayHello()
+    echo '$GIT_URL'
 }
+
+def pipeline = load 'release.groovy'
 
 stage 'snapshot deploy'
 node {
