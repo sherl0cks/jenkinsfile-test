@@ -1,21 +1,24 @@
+
+def pipeline = load 'release.groovy'
+
 stage 'snapshot build'
 node {
-    echo 'Hello from snapshot'
+    pipeline.sayHello()
 }
 
 stage 'snapshot deploy'
 node {
-    echo 'Hello from snapshot deploy'
+    pipeline.sayHello()
 }
 
 stage 'acceptance tests'
 node {
-    echo 'Hello from snapshot deploy'
+    pipeline.sayHello()
 }
 
 stage 'static analysis'
 node {
-    echo 'Hello from snapshot deploy'
+    pipeline.sayHello()
 }
 
 stage 'PR to master?'
