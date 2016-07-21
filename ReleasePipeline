@@ -1,0 +1,35 @@
+stage 'release build'
+node {
+    echo 'Hello from snapshot'
+}
+
+stage 'deploy release to stage'
+node {
+    echo 'Hello from snapshot deploy'
+}
+
+stage 'acceptance tests in stage'
+node {
+    echo 'Hello from snapshot deploy'
+}
+
+stage 'static analysis'
+node {
+    echo 'Hello from snapshot deploy'
+}
+
+stage 'performance / soak / load testing in parallel'
+node {
+    echo 'Hello from snapshot deploy'
+}
+
+stage 'deploy release to prod'
+def userInput = input(
+ id: 'userInput', message: 'Let\'s submit a PR?', parameters: [
+ [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env'],
+ [$class: 'TextParameterDefinition', defaultValue: 'uat1', description: 'Target', name: 'target']
+]) 
+echo ("Env: "+userInput['env'])
+echo ("Target: "+userInput['target'])
+
+
