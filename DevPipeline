@@ -1,6 +1,6 @@
 stage 'snapshot build'
 node {
-    echo '$GIT_URL'
+    println GIT_URL
 }
 
 def pipeline = load 'release.groovy'
